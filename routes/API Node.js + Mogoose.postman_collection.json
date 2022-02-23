@@ -1,0 +1,624 @@
+{
+	"info": {
+		"_postman_id": "5bfbd6f9-aa19-47ba-80b7-a95b9c396067",
+		"name": "API Node.js + Mogoose",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/pessoa",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Loki Monteiro Ribeiro\",\r\n    \"salario\": 8500.00,\r\n    \"ativo\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/pessoa",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"pessoa"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "201 /pessoa",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Tácito Nunes Ribeiro\",\r\n    \"salario\": 6578.00,\r\n    \"ativo\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/pessoa",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pessoa"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "111"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"6f-bY6e9tmGPiCRw9k5JrD00R2jx/I\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 23 Feb 2022 01:52:54 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Pessoa criada com sucesso!\",\n    \"dados\": [\n        {\n            \"nome\": \"Tácito Nunes Ribeiro\",\n            \"salario\": 6578,\n            \"ativo\": true\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "/",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//access a variable at any scope including local\r",
+							"//pm.variables.set(\"id\");\r",
+							"//access a global variable\r",
+							"//pm.globals.set(\"variable_key\");\r",
+							"//access a collection variable\r",
+							"if(pm.response.json()[0]){\r",
+							"    pm.collectionVariables.set(\"id\", pm.response.json()[0]._id);\r",
+							"}\r",
+							"//access an environment variable\r",
+							"//pm.environment.set(\"variable_key\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/pessoa",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"pessoa"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 /",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/pessoa",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pessoa"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "218"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"da-2i5r9pWRR9AuyXi7R1xEBTroJC0\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 23 Feb 2022 05:31:08 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"6215937600b15fdc765e445c\",\n        \"nome\": \"Tácito Nunes Ribeiro\",\n        \"salario\": 80000,\n        \"ativo\": true,\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"62159da01e731e4e8307133e\",\n        \"nome\": \"Kássia Cristine Monteiro Ribeiro\",\n        \"salario\": 8500,\n        \"ativo\": true,\n        \"__v\": 0\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "/pessoa/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/pessoa/{{id}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"pessoa",
+						"{{id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "404 /pessoa/:id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/pessoa/{{id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pessoa",
+								"{{id}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "82"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"52-vPx1ozzlLbw+p84wN3ZO9ZoW9Cg\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 23 Feb 2022 05:31:38 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"mensagem\": \"Cadastro não encontrado\",\n    \"filtro\": {\n        \"id\": \"6215937600b15fdc765e4453\"\n    }\n}"
+				},
+				{
+					"name": "200 /pessoa/:id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/pessoa/{{id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pessoa",
+								"{{id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "113"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"71-GDAbnq/+MZHV2dt1d78jSzEsdkc\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 23 Feb 2022 05:32:41 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": \"62159da01e731e4e8307133e\",\n    \"nome\": \"Kássia Cristine Monteiro Ribeiro\",\n    \"salario\": 8500,\n    \"ativo\": true,\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "/pessoa/:id",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n            \"nome\": \"Tácito Nunes Ribeiro\",\r\n            \"salario\": 80000.00,\r\n            \"ativo\": true\r\n        }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/pessoa/{{id}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"pessoa",
+						"{{id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 /pessoa/:id",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n            \"nome\": \"Tácito Nunes Ribeiro\",\r\n            \"salario\": 80000.00,\r\n            \"ativo\": true\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/pessoa/{{id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pessoa",
+								"{{id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "264"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"108-JiMIpBvjvcL95Dl5VnUsqBLKemI\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 23 Feb 2022 05:30:07 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"mensagem\": \"Cadastro atualizado com sucesso!\",\n    \"return\": [\n        {\n            \"acknowledged\": true,\n            \"modifiedCount\": 1,\n            \"upsertedId\": null,\n            \"upsertedCount\": 0,\n            \"matchedCount\": 1\n        }\n    ],\n    \"dados\": [\n        {\n            \"_id\": \"6215937600b15fdc765e445c\",\n            \"nome\": \"Tácito Nunes Ribeiro\",\n            \"salario\": 80000,\n            \"ativo\": true,\n            \"__v\": 0\n        }\n    ]\n}"
+				},
+				{
+					"name": "404 /pessoa/:id",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n            \"nome\": \"Loki Monteiro Ribeiro\",\r\n            \"salario\": 6578.85,\r\n            \"ativo\": true\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/pessoa/{{id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pessoa",
+								"{{id}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "82"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"52-Rja+RviMbpwED9W0wF48beRxJMw\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 23 Feb 2022 05:28:44 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"mensagem\": \"Cadastro não encontrado\",\n    \"filtro\": {\n        \"id\": \"6215c587894a68595855708c\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "/pessoa/:id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/pessoa/{{id}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"pessoa",
+						"{{id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 /pessoa/:id",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/pessoa/{{id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pessoa",
+								"{{id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "190"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"be-0pLBji7hLnJIgg35XwcZt/eL/Uw\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 23 Feb 2022 05:28:00 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"mensagem\": \"Usuário removido com sucesso!\",\n    \"return\": [\n        {\n            \"deletedCount\": 1\n        }\n    ],\n    \"dados\": [\n        {\n            \"_id\": \"6215c587894a68595855708c\",\n            \"nome\": \"Loki Monteiro Ribeiro\",\n            \"salario\": 6578.85,\n            \"ativo\": true,\n            \"__v\": 0\n        }\n    ]\n}"
+				},
+				{
+					"name": "404 /pessoa/:id",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/pessoa/{{id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pessoa",
+								"{{id}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "82"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"52-Rja+RviMbpwED9W0wF48beRxJMw\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 23 Feb 2022 05:29:12 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"mensagem\": \"Cadastro não encontrado\",\n    \"filtro\": {\n        \"id\": \"6215c587894a68595855708c\"\n    }\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:3000",
+			"type": "string"
+		},
+		{
+			"key": "id",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
