@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nome\": \"Loki Monteiro Ribeiro\",\r\n    \"salario\": 8500.00,\r\n    \"ativo\": true\r\n}",
+					"raw": "{\r\n    \"nome\": \"Tácito Ribeiro\",\r\n    \"salario\": 10500.00,\r\n    \"ativo\": false\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -307,11 +307,11 @@
 		{
 			"name": "/pessoa/:id",
 			"request": {
-				"method": "PATCH",
+				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n            \"nome\": \"Tácito Nunes Ribeiro\",\r\n            \"salario\": 80000.00,\r\n            \"ativo\": true\r\n        }",
+					"raw": "{\r\n            \"nome\": \"Loki M Ribeiro\",\r\n            \"salario\": 5000.00,\r\n            \"ativo\": true\r\n        }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -333,11 +333,11 @@
 				{
 					"name": "200 /pessoa/:id",
 					"originalRequest": {
-						"method": "PATCH",
+						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n            \"nome\": \"Tácito Nunes Ribeiro\",\r\n            \"salario\": 80000.00,\r\n            \"ativo\": true\r\n        }",
+							"raw": "{\r\n            \"nome\": \"Loki M Ribeiro\",\r\n            \"salario\": 5000.00,\r\n            \"ativo\": true\r\n        }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -369,15 +369,15 @@
 						},
 						{
 							"key": "Content-Length",
-							"value": "264"
+							"value": "368"
 						},
 						{
 							"key": "ETag",
-							"value": "W/\"108-JiMIpBvjvcL95Dl5VnUsqBLKemI\""
+							"value": "W/\"170-4Pa3SBX1of3344HTYNalXwvjXS4\""
 						},
 						{
 							"key": "Date",
-							"value": "Wed, 23 Feb 2022 05:30:07 GMT"
+							"value": "Thu, 24 Feb 2022 04:43:25 GMT"
 						},
 						{
 							"key": "Connection",
@@ -389,7 +389,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"mensagem\": \"Cadastro atualizado com sucesso!\",\n    \"return\": [\n        {\n            \"acknowledged\": true,\n            \"modifiedCount\": 1,\n            \"upsertedId\": null,\n            \"upsertedCount\": 0,\n            \"matchedCount\": 1\n        }\n    ],\n    \"dados\": [\n        {\n            \"_id\": \"6215937600b15fdc765e445c\",\n            \"nome\": \"Tácito Nunes Ribeiro\",\n            \"salario\": 80000,\n            \"ativo\": true,\n            \"__v\": 0\n        }\n    ]\n}"
+					"body": "{\n    \"mensagem\": \"Cadastro atualizado com sucesso!\",\n    \"retorno\": [\n        {\n            \"acknowledged\": true,\n            \"modifiedCount\": 1,\n            \"upsertedId\": null,\n            \"upsertedCount\": 0,\n            \"matchedCount\": 1\n        }\n    ],\n    \"dados\": [\n        {\n            \"antigo\": {\n                \"_id\": \"6216f9f6b5850d1f775adbf0\",\n                \"nome\": \"Loki Ribeiro\",\n                \"salario\": 5000,\n                \"ativo\": true,\n                \"__v\": 0\n            },\n            \"novo\": {\n                \"_id\": \"6216f9f6b5850d1f775adbf0\",\n                \"nome\": \"Loki M Ribeiro\",\n                \"salario\": 5000,\n                \"ativo\": true,\n                \"__v\": 0\n            }\n        }\n    ]\n}"
 				},
 				{
 					"name": "404 /pessoa/:id",
