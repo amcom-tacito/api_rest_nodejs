@@ -14,7 +14,9 @@ const mongoose_1 = require("mongoose");
 const schPessoa = new mongoose_1.Schema({
     nome: { type: String, required: true },
     salario: { type: Number, required: true },
-    ativo: { type: Boolean, required: true }
+    ativo: { type: Boolean, required: true },
+    created_at: { type: Date, required: true },
+    updated_at: { type: Date, required: true }
 });
 exports.default = (0, mongoose_1.model)('Pessoa', schPessoa);
 //module.exports = PessoaModel;

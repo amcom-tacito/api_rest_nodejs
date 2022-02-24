@@ -56,6 +56,8 @@ router.get('/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () 
 router.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { nome, salario, ativo } = req.body; //destructuring
+        const created_at = new Date();
+        const updated_at = new Date();
         const varToString = (varObj) => Object.keys(varObj)[0];
         if (typeof (nome) != "string") {
             console.log("Nome :" + typeof (nome));
@@ -69,7 +71,7 @@ router.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             console.log("Ativo :" + typeof (ativo));
             throw new FieldException_1.default(422, "O status do usuário é obrigatório", varToString({ ativo }), "boolean", typeof (ativo));
         }
-        const pessoa = { nome, salario, ativo };
+        const pessoa = { nome, salario, ativo, created_at, updated_at };
         //criando dados
         yield Pessoa_1.default.create(pessoa);
         res.status(201).json({
@@ -78,7 +80,9 @@ router.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
                 {
                     nome: pessoa.nome,
                     salario: pessoa.salario,
-                    ativo: pessoa.ativo
+                    ativo: pessoa.ativo,
+                    created_at: pessoa.created_at,
+                    updated_at: pessoa.updated_at
                 }
             ]
         });
@@ -100,6 +104,7 @@ router.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 router.put('/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { nome, salario, ativo } = req.body;
+        const updated_at = new Date();
         const varToString = (varObj) => Object.keys(varObj)[0];
         if (typeof (nome) != "string") {
             console.log("Nome :" + typeof (nome));
@@ -113,7 +118,7 @@ router.put('/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () 
             console.log("Ativo :" + typeof (ativo));
             throw new FieldException_1.default(422, "O status do usuário é obrigatório", varToString({ ativo }), "boolean", typeof (ativo));
         }
-        const pessoaUp = { nome, salario, ativo };
+        const pessoaUp = { nome, salario, ativo, updated_at };
         //Verificar no banco se a pessoa existe
         const id = req.params.id;
         const pessoa = yield Pessoa_1.default.findOne({ _id: id });

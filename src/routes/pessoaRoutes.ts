@@ -42,6 +42,8 @@ router.get('/:id', async (req :any, res :any) => {
 router.post('/', async (req :any, res :any) => { //garantimos a função como assíncrona para esperarmos o DB
     try{
         const { nome, salario, ativo } = req.body //destructuring
+        const created_at: Date = new Date();
+        const updated_at: Date = new Date();
         const varToString = (varObj :Object) => Object.keys(varObj)[0]
         if(typeof(nome) != "string"){
             console.log("Nome :" + typeof(nome));
@@ -55,7 +57,7 @@ router.post('/', async (req :any, res :any) => { //garantimos a função como as
             console.log("Ativo :" + typeof(ativo));
             throw new FieldException(422, "O status do usuário é obrigatório", varToString({ativo}), "boolean", typeof(ativo));
         }
-	    const pessoa = { nome, salario, ativo };
+	    const pessoa = { nome, salario, ativo, created_at, updated_at };
         //criando dados
         await Pessoa.create(pessoa);
         res.status(201).json({
@@ -64,7 +66,9 @@ router.post('/', async (req :any, res :any) => { //garantimos a função como as
                 { 
                     nome: pessoa.nome,
                     salario: pessoa.salario,
-                    ativo: pessoa.ativo
+                    ativo: pessoa.ativo,
+                    created_at: pessoa.created_at,
+                    updated_at: pessoa.updated_at
                 }
             ]
         });
@@ -84,6 +88,7 @@ router.post('/', async (req :any, res :any) => { //garantimos a função como as
 router.put('/:id', async (req :any, res :any) => {
     try {
         const {nome, salario, ativo} = req.body;
+        const updated_at: Date = new Date();
         const varToString = (varObj :Object) => Object.keys(varObj)[0]
         if(typeof(nome) != "string"){
             console.log("Nome :" + typeof(nome));
@@ -97,7 +102,7 @@ router.put('/:id', async (req :any, res :any) => {
             console.log("Ativo :" + typeof(ativo));
             throw new FieldException(422, "O status do usuário é obrigatório", varToString({ativo}), "boolean", typeof(ativo));
         }
-        const pessoaUp = {nome, salario, ativo};
+        const pessoaUp = {nome, salario, ativo, updated_at};
         //Verificar no banco se a pessoa existe
         const id :string = req.params.id;
         const pessoa = await Pessoa.findOne({_id: id});
