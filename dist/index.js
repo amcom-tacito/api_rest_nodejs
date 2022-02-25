@@ -14,13 +14,16 @@ const express = require('express');
 //IMPORTAÇÕES
 const PessoaRoutes = require('./routes/pessoaRoutes');
 const GenericoRoutes = require('./routes/genericoRoutes');
+const swaggerUi = require('swagger-ui-express');
+const swaggerFile = require('./swagger/swagger_output.json');
 const app = express();
 //################### MIDDLEWARES ########################
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 //################### ROTAS ########################
-app.use('/pessoa', PessoaRoutes);
 app.use('/', GenericoRoutes);
+app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile));
+app.use('/pessoa', PessoaRoutes);
 //FIM MIDDLEWARES
 //################### CONFIGURANDO BD #####################
 new configDB_1.default(app);

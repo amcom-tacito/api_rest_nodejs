@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nome\": \"Tácito Ribeiro\",\r\n    \"salario\": 10500.00,\r\n    \"ativo\": false\r\n}",
+					"raw": "{\r\n    \"nome\": \"João Silva\",\r\n    \"salario\": 1000.00,\r\n    \"ativo\": false\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -99,6 +99,34 @@
 					"listen": "test",
 					"script": {
 						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/pessoa",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
 							"//access a variable at any scope including local\r",
 							"//pm.variables.set(\"id\");\r",
 							"//access a global variable\r",
@@ -129,7 +157,7 @@
 			},
 			"response": [
 				{
-					"name": "200 /",
+					"name": "200 /pessoa",
 					"originalRequest": {
 						"method": "GET",
 						"header": [],
@@ -311,7 +339,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n            \"nome\": \"Loki M Ribeiro\",\r\n            \"salario\": 5000.00,\r\n            \"ativo\": true\r\n        }",
+					"raw": "{\r\n    \"nome\": \"Tácito N Ribeiro\",\r\n    \"salario\": 5000.00,\r\n    \"ativo\": true\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

@@ -10,7 +10,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 const router = require('express').Router();
 router.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    res.json({ saudacao: 'Oi, esta é a rota principal!' });
+    /*
+      #swagger.tags = ['Geral']
+      #swagger.description = 'Detalhes de implementação'
+      # swagger. summary = 'Some summary...'
+    */
+    res.status(200).json({ saudacao: 'Oi, esta é a rota principal!' });
 }));
 //NÃO ESQUECER DE EXPORTAR O router
 module.exports = router;
