@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        button {
+            background-color:aquamarine;
+            color:black;
+            width: 300px ;
+
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="getAll(true)">Receber os dados EXTERNOS</button>
+    <button onclick="getAll(false)">Receber os dados INTERNOS</button>
+    
+    <main>
+
+    </main>
+</body>
+
+<script>
+    async function getAll(ext){
+        try {
+            let url = (ext) ? 'http://localhost:3000/external' : 'http://localhost:3000/pessoa';
+
+            const response = await fetch(url);
+            const data = await response.json();
+
+            show(data, ext);
+            
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    //getAll()
+
+    function show(pessoas, ext){
+
+        let lista = '<ul>';
+        for(let pessoa of pessoas){
+            lista += (ext) ? `<li>${pessoa.name}</li>` : `<li>${pessoa.nome}</li>`;
+        }
+        lista += '</ul>'
+        document.querySelector("main").innerHTML = lista;
+    }
+</script>
+
+</html>

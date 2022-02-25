@@ -9,6 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 const router = require('express').Router();
+const axios = require('axios');
 router.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     /*
       #swagger.tags = ['Geral']
@@ -16,6 +17,12 @@ router.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
       # swagger. summary = 'Some summary...'
     */
     res.status(200).json({ saudacao: 'Oi, esta é a rota principal!' });
+}));
+router.get('/external', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    //response é a resposta do axios e o json retornado está em response.data
+    //Aplicamos o destructuring como abaixo
+    const { data } = yield axios('https://jsonplaceholder.typicode.com/users');
+    return res.json(data);
 }));
 //NÃO ESQUECER DE EXPORTAR O router
 module.exports = router;

@@ -1,7 +1,7 @@
 
 const doc = {
     info: {
-        version: '1.4.0',      // by default: '1.0.0'
+        version: '1.5.0',      // by default: '1.0.0'
         title: 'Rest API (Nodejs x Typescript x MongoDB)',        // by default: 'REST API'
         description: 'API de teste para aprendizado da stack utilizada',  // by default: ''
     },

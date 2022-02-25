@@ -25,6 +25,17 @@
         }
       }
     },
+    "/external": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/pessoa/": {
       "get": {
         "tags": [
